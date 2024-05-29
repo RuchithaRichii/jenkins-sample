@@ -1,5 +1,5 @@
 FROM ubuntu
-
-RUN cp /var/www/html/index.html
-
-ADD ./index.html /var/www/html
+RUN apt-get update
+RUN apt-get install apache2 -y
+COPY index.html /var/www/html/
+ENTRYPOINT apachectl -D FOREGROUND
